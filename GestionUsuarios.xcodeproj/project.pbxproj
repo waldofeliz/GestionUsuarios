@@ -1,0 +1,554 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 110;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		23794FFD305EE80C00D11B25 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 23794FE7305EE80A00D11B25 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 23794FEE305EE80A00D11B25;
+			remoteInfo = GestionUsuarios;
+		};
+		23795007305EE80C00D11B25 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 23794FE7305EE80A00D11B25 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 23794FEE305EE80A00D11B25;
+			remoteInfo = GestionUsuarios;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		23794FEF305EE80A00D11B25 /* GestionUsuarios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GestionUsuarios.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		23794FFC305EE80C00D11B25 /* GestionUsuariosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GestionUsuariosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		23795006305EE80C00D11B25 /* GestionUsuariosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GestionUsuariosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		23794FF1305EE80A00D11B25 /* GestionUsuarios */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = GestionUsuarios;
+			sourceTree = "<group>";
+		};
+		23794FFF305EE80C00D11B25 /* GestionUsuariosTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = GestionUsuariosTests;
+			sourceTree = "<group>";
+		};
+		23795009305EE80C00D11B25 /* GestionUsuariosUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = GestionUsuariosUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		23794FEC305EE80A00D11B25 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		23794FF9305EE80C00D11B25 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		23795003305EE80C00D11B25 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		23794FE6305EE80A00D11B25 = {
+			isa = PBXGroup;
+			children = (
+				23794FF1305EE80A00D11B25 /* GestionUsuarios */,
+				23794FFF305EE80C00D11B25 /* GestionUsuariosTests */,
+				23795009305EE80C00D11B25 /* GestionUsuariosUITests */,
+				23794FF0305EE80A00D11B25 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		23794FF0305EE80A00D11B25 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				23794FEF305EE80A00D11B25 /* GestionUsuarios.app */,
+				23794FFC305EE80C00D11B25 /* GestionUsuariosTests.xctest */,
+				23795006305EE80C00D11B25 /* GestionUsuariosUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		23794FEE305EE80A00D11B25 /* GestionUsuarios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2379500E305EE80C00D11B25 /* Build configuration list for PBXNativeTarget "GestionUsuarios" */;
+			buildPhases = (
+				23794FEB305EE80A00D11B25 /* Sources */,
+				23794FEC305EE80A00D11B25 /* Frameworks */,
+				23794FED305EE80A00D11B25 /* Resources */,
+			);
+			buildRules = (
+			);
+			fileSystemSynchronizedGroups = (
+				23794FF1305EE80A00D11B25 /* GestionUsuarios */,
+			);
+			name = GestionUsuarios;
+			productName = GestionUsuarios;
+			productReference = 23794FEF305EE80A00D11B25 /* GestionUsuarios.app */;
+			productType = "com.apple.product-type.application";
+		};
+		23794FFB305EE80C00D11B25 /* GestionUsuariosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23795011305EE80C00D11B25 /* Build configuration list for PBXNativeTarget "GestionUsuariosTests" */;
+			buildPhases = (
+				23794FF8305EE80C00D11B25 /* Sources */,
+				23794FF9305EE80C00D11B25 /* Frameworks */,
+				23794FFA305EE80C00D11B25 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				23794FFE305EE80C00D11B25 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				23794FFF305EE80C00D11B25 /* GestionUsuariosTests */,
+			);
+			name = GestionUsuariosTests;
+			productName = GestionUsuariosTests;
+			productReference = 23794FFC305EE80C00D11B25 /* GestionUsuariosTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		23795005305EE80C00D11B25 /* GestionUsuariosUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23795014305EE80C00D11B25 /* Build configuration list for PBXNativeTarget "GestionUsuariosUITests" */;
+			buildPhases = (
+				23795002305EE80C00D11B25 /* Sources */,
+				23795003305EE80C00D11B25 /* Frameworks */,
+				23795004305EE80C00D11B25 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				23795008305EE80C00D11B25 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				23795009305EE80C00D11B25 /* GestionUsuariosUITests */,
+			);
+			name = GestionUsuariosUITests;
+			productName = GestionUsuariosUITests;
+			productReference = 23795006305EE80C00D11B25 /* GestionUsuariosUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		23794FE7305EE80A00D11B25 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2700;
+				LastUpgradeCheck = 2700;
+				TargetAttributes = {
+					23794FEE305EE80A00D11B25 = {
+						CreatedOnToolsVersion = 27.0;
+					};
+					23794FFB305EE80C00D11B25 = {
+						CreatedOnToolsVersion = 27.0;
+						TestTargetID = 23794FEE305EE80A00D11B25;
+					};
+					23795005305EE80C00D11B25 = {
+						CreatedOnToolsVersion = 27.0;
+						TestTargetID = 23794FEE305EE80A00D11B25;
+					};
+				};
+			};
+			buildConfigurationList = 23794FEA305EE80A00D11B25 /* Build configuration list for PBXProject "GestionUsuarios" */;
+			developmentRegion = es;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				es,
+				en,
+				Base,
+			);
+			mainGroup = 23794FE6305EE80A00D11B25;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 23794FF0305EE80A00D11B25 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				23794FEE305EE80A00D11B25 /* GestionUsuarios */,
+				23794FFB305EE80C00D11B25 /* GestionUsuariosTests */,
+				23795005305EE80C00D11B25 /* GestionUsuariosUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		23794FED305EE80A00D11B25 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+		23794FFA305EE80C00D11B25 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+		23795004305EE80C00D11B25 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		23794FEB305EE80A00D11B25 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+		23794FF8305EE80C00D11B25 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+		23795002305EE80C00D11B25 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		23794FFE305EE80C00D11B25 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 23794FEE305EE80A00D11B25 /* GestionUsuarios */;
+			targetProxy = 23794FFD305EE80C00D11B25 /* PBXContainerItemProxy */;
+		};
+		23795008305EE80C00D11B25 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 23794FEE305EE80A00D11B25 /* GestionUsuarios */;
+			targetProxy = 23795007305EE80C00D11B25 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2379500C305EE80C00D11B25 /* Debug configuration for PBXProject "GestionUsuarios" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = B3J6J9Z2H6;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2379500D305EE80C00D11B25 /* Release configuration for PBXProject "GestionUsuarios" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = B3J6J9Z2H6;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		2379500F305EE80C00D11B25 /* Debug configuration for PBXNativeTarget "GestionUsuarios" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GestionUsuarios/Recursos/GestionUsuarios.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B3J6J9Z2H6;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Gestión de usuarios";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.devapp.GestionUsuarios;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		23795010305EE80C00D11B25 /* Release configuration for PBXNativeTarget "GestionUsuarios" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GestionUsuarios/Recursos/GestionUsuarios.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B3J6J9Z2H6;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Gestión de usuarios";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.devapp.GestionUsuarios;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		23795012305EE80C00D11B25 /* Debug configuration for PBXNativeTarget "GestionUsuariosTests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B3J6J9Z2H6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.devapp.GestionUsuariosTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GestionUsuarios.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GestionUsuarios";
+			};
+			name = Debug;
+		};
+		23795013305EE80C00D11B25 /* Release configuration for PBXNativeTarget "GestionUsuariosTests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B3J6J9Z2H6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.devapp.GestionUsuariosTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GestionUsuarios.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GestionUsuarios";
+			};
+			name = Release;
+		};
+		23795015305EE80C00D11B25 /* Debug configuration for PBXNativeTarget "GestionUsuariosUITests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B3J6J9Z2H6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.devapp.GestionUsuariosUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = GestionUsuarios;
+			};
+			name = Debug;
+		};
+		23795016305EE80C00D11B25 /* Release configuration for PBXNativeTarget "GestionUsuariosUITests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B3J6J9Z2H6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.devapp.GestionUsuariosUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = GestionUsuarios;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		23794FEA305EE80A00D11B25 /* Build configuration list for PBXProject "GestionUsuarios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2379500C305EE80C00D11B25 /* Debug configuration for PBXProject "GestionUsuarios" */,
+				2379500D305EE80C00D11B25 /* Release configuration for PBXProject "GestionUsuarios" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		2379500E305EE80C00D11B25 /* Build configuration list for PBXNativeTarget "GestionUsuarios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2379500F305EE80C00D11B25 /* Debug configuration for PBXNativeTarget "GestionUsuarios" */,
+				23795010305EE80C00D11B25 /* Release configuration for PBXNativeTarget "GestionUsuarios" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		23795011305EE80C00D11B25 /* Build configuration list for PBXNativeTarget "GestionUsuariosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23795012305EE80C00D11B25 /* Debug configuration for PBXNativeTarget "GestionUsuariosTests" */,
+				23795013305EE80C00D11B25 /* Release configuration for PBXNativeTarget "GestionUsuariosTests" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		23795014305EE80C00D11B25 /* Build configuration list for PBXNativeTarget "GestionUsuariosUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23795015305EE80C00D11B25 /* Debug configuration for PBXNativeTarget "GestionUsuariosUITests" */,
+				23795016305EE80C00D11B25 /* Release configuration for PBXNativeTarget "GestionUsuariosUITests" */,
+			);
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 23794FE7305EE80A00D11B25 /* Project object */;
+	validationLevel = 1;
+}
