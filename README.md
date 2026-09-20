@@ -6,7 +6,7 @@ No es un producto de producción: la autenticación es local, la sesión vive en
 
 > **Entorno de demostración — no es producción.**  
 > Credenciales de demo (solo para desarrollo y pruebas; la pantalla de login las anuncia como entorno de demostración, **no** las muestra en la UI):  
-> Usuario: `waldofeliz`  
+> Usuario: `administrador`  
 > Contraseña: `123456`  
 > No reutilices este patrón (clave débil, un solo usuario, sin IdP) en un sistema real.
 
@@ -69,7 +69,7 @@ xcodebuild -list -project GestionUsuarios.xcodeproj
 ## Iniciar sesión (demo)
 
 1. Arranca la app: ves **Iniciar sesión**, el subtítulo *Introduce tu usuario y contraseña* y el texto **Entorno de demostración**.
-2. Usuario: `waldofeliz` (sensible a mayúsculas; se recortan espacios). Placeholder: *Ej. tu usuario* — no revela el nombre demo.
+2. Usuario: `administrador` (sensible a mayúsculas; se recortan espacios). Placeholder: *Ej. tu usuario* — no revela el nombre demo.
 3. Contraseña: `123456` (no se recorta; no aparece en hints ni en VoiceOver).
 4. **Entrar** (o Return). Si aciertas, oyes/ves *Sesión iniciada* y pasas a **Inicio**.
 
@@ -87,7 +87,7 @@ La clave **no** se envía a JSONPlaceholder. Cerrar la app termina la sesión (n
 
 Tras el login, la barra lateral muestra **Inicio** (por defecto) y **Usuarios**. En Inicio:
 
-- Saludo *Hola, waldofeliz* y *Resumen de tu espacio de trabajo.*
+- Saludo *Hola, administrador* y *Resumen de tu espacio de trabajo.*
 - Cuatro KPI derivados del listado real: **Usuarios**, **Ciudades**, **Empresas**, **Altas de sesión**.
 - Gráfico de área **Usuarios por ciudad** y de barras **Usuarios por empresa** (Swift Charts; no hay “visitas” ni series temporales inventadas).
 - Accesos **Ver usuarios** y **Nuevo usuario**.

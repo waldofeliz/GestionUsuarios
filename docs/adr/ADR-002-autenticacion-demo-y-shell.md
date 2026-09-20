@@ -8,6 +8,8 @@ Accepted
 
 **Enmienda (2026-09-19):** el contrato de **datos** de Inicio (conteo en Presentation; “no gráficos”) lo sustituye [ADR-003](ADR-003-dashboard-graficos.md). Auth, gate, logout, un solo `NavigationSplitView` y “Inicio usa `ListarUsuariosCasoUso`” siguen vigentes.
 
+**Enmienda (2026-09-20):** identidad demo de producto = `administrador` (MAC de usuario actualizado). Pepper HMAC y MAC de password **sin cambio**. El usuario `waldofeliz` deja de autenticar. Auth local HMAC (ADR-002) no se rediseña.
+
 ## Context
 
 `GestionUsuarios` ya implementa ADR-001 (Accepted): Domain / Data / Presentation + Composition Root. El `@main` (`GestionUsuariosApp`) entra **directo** a `RaizUsuariosVista`; el CRUD contra JSONPlaceholder no tiene gate de sesión.
@@ -15,7 +17,7 @@ Accepted
 El producto pide ahora:
 
 1. Pantalla de **inicio** post-login (home / resumen; no un dashboard web de KPIs).
-2. Login demo con un único usuario: nombre `waldofeliz`, clave `123456`. JSONPlaceholder **no autentica**.
+2. Login demo con un único usuario: nombre `administrador`, clave `123456`. JSONPlaceholder **no autentica**.
 3. **Logout**.
 
 Restricciones duras (reutilizadas del handoff EE-ARCH-20260919-3):
@@ -45,7 +47,7 @@ Hoy hay **un** bounded context (`Usuarios`). Auth es un segundo contexto; no se 
 
 1. **Auth local en proceso** (verifier compilado + compare en cliente). Cero red en el camino de login.
 2. **POST de usuario/clave a JSONPlaceholder** (p. ej. `/users` o un endpoint inventado). La API no valida passwords; además **filtra la clave a un tercero**.
-3. **GET `/users` y “login” si el username existe en el dataset remoto**. No hay clave en JSONPlaceholder; `waldofeliz` no es un usuario de esa API; acoplaría Auth a Usuarios y a la red.
+3. **GET `/users` y “login” si el username existe en el dataset remoto**. No hay clave en JSONPlaceholder; `administrador` no es un usuario de esa API; acoplaría Auth a Usuarios y a la red.
 
 ### B — Material de la clave en el binario
 
@@ -107,7 +109,7 @@ Reglas de frontera:
 - Autenticacion **no** importa DTOs, `UsuarioRepositorio` ni JSONPlaceholder.
 - Usuarios **no** conoce la clave ni `CredencialesInicio`.
 - El **único** puente permitido es: (1) gate “¿hay `Sesion`?” antes de CRUD; (2) logout compuesto que reinicia el overlay.
-- `Usuario` remoto (Bret, etc.) **no** es identidad de login. Identidad demo = `waldofeliz` local.
+- `Usuario` remoto (Bret, etc.) **no** es identidad de login. Identidad demo = `administrador` local.
 
 ### Capas (extensión de ADR-001)
 
@@ -130,7 +132,7 @@ Dependencias: `Presentation → Domain ← Data`; `App → todas`. Igual que ADR
 
 Identidad demo (producto):
 
-- Único `nombreUsuario` válido: `waldofeliz` (constante de identidad, no secreto).
+- Único `nombreUsuario` válido: `administrador` (constante de identidad, no secreto; comparación por HMAC en Data, no literal en el target app).
 - Única clave válida: la que Security materialice en el verificador (equivalente funcional a `123456` para el usuario demo).
 - Usuario desconocido y clave incorrecta → **el mismo** error de dominio (`credencialesInvalidas`) para no enumerar identidades.
 
@@ -557,7 +559,7 @@ G2/G3/G6: SKIP — no hay código de producción en este entregable.
 ### Criterio de éxito
 
 - [ ] Arranque muestra login, no `RaizUsuariosVista`
-- [ ] `waldofeliz` + clave demo (según verifier Security) → Inicio
+- [ ] `administrador` + clave demo (según verifier Security) → Inicio; `waldofeliz` + misma clave **no** autentica
 - [ ] Credencial inválida → `ErrorAutenticacion.credencialesInvalidas`; cero HTTP de login
 - [ ] CRUD y `listar` sin sesión → `sesionRequerida` (test del decorator)
 - [ ] Inicio: conteo vía `ListarUsuariosCasoUso`; ningún `URLSession` nuevo
@@ -612,7 +614,7 @@ G2/G3/G6: SKIP — no hay código de producción en este entregable.
 | Elemento | Detalle |
 |----------|---------|
 | Login | Solo local. Cero HTTP en `IniciarSesionServicio` |
-| Identidad demo | `waldofeliz` (no secreto) |
+| Identidad demo | `administrador` (no secreto) |
 | Secreto demo | Equivalente a `123456`; **no** viaja a `jsonplaceholder.typicode.com` |
 | Almacén sesión | Actor memoria; no UserDefaults; no Keychain (Architect) |
 | Overlay usuarios | RAM; se borra en logout compuesto |

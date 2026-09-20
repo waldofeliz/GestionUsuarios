@@ -4,8 +4,8 @@ Los PNG de este directorio los genera `@senior-fullstack-developer-agent` (no se
 
 | Archivo | Contenido esperado |
 |---------|-------------------|
-| `01-login.png` | Ventana **Iniciar sesión** con **Entorno de demostración** visible. Contraseña vacía (nunca en claro). |
-| `02-inicio-dashboard.png` | Tras login: saludo, KPI, gráfico de área y de barras. |
+| `01-login.png` | Ventana **Iniciar sesión** con **Entorno de demostración** visible. Usuario `administrador` o vacío. Contraseña vacía (nunca en claro). |
+| `02-inicio-dashboard.png` | Tras login: saludo *Hola, administrador*, KPI, gráfico de área y de barras. |
 | `03-usuarios-lista-detalle.png` | Destino **Usuarios**: lista con una fila seleccionada y el detalle a la derecha. |
 | `04-nuevo-usuario.png` | Hoja **Nuevo usuario** (nombre, nombre de usuario, correo). |
 

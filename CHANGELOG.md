@@ -6,6 +6,11 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es/1.1.0/), y el 
 
 ## [Unreleased]
 
+### Cambiado
+
+- Identidad de login demo: usuario `administrador` (antes `waldofeliz`). Contraseña de demostración sin cambio. El usuario anterior deja de autenticar.
+- Capturas `01-login` y `02-inicio-dashboard` regeneradas con el usuario `administrador`.
+
 ### Añadido
 
 - Documentación de usuario y desarrollo: README raíz, índice `docs/`, runbook local.

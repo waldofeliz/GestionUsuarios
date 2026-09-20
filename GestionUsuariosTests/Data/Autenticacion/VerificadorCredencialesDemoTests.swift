@@ -7,7 +7,7 @@ struct VerificadorCredencialesDemoTests {
 
     @Test func credencialesDemoValidas() async throws {
         try await verificador.verificar(
-            CredencialesInicio(nombreUsuario: "waldofeliz", clave: "123456")
+            CredencialesInicio(nombreUsuario: "administrador", clave: "123456")
         )
     }
 
@@ -22,7 +22,7 @@ struct VerificadorCredencialesDemoTests {
     @Test func usuarioValidoClaveBasura() async {
         await #expect(throws: ErrorAutenticacion.credencialesInvalidas) {
             try await verificador.verificar(
-                CredencialesInicio(nombreUsuario: "waldofeliz", clave: "000000")
+                CredencialesInicio(nombreUsuario: "administrador", clave: "000000")
             )
         }
     }
@@ -30,7 +30,7 @@ struct VerificadorCredencialesDemoTests {
     @Test func claveSinTrim() async {
         await #expect(throws: ErrorAutenticacion.credencialesInvalidas) {
             try await verificador.verificar(
-                CredencialesInicio(nombreUsuario: "waldofeliz", clave: "123456 ")
+                CredencialesInicio(nombreUsuario: "administrador", clave: "123456 ")
             )
         }
     }
@@ -38,7 +38,15 @@ struct VerificadorCredencialesDemoTests {
     @Test func usuarioLiteralNoCoincideSinHMAC() async {
         await #expect(throws: ErrorAutenticacion.credencialesInvalidas) {
             try await verificador.verificar(
-                CredencialesInicio(nombreUsuario: "Waldofeliz", clave: "123456")
+                CredencialesInicio(nombreUsuario: "Administrador", clave: "123456")
+            )
+        }
+    }
+
+    @Test func identidadAnteriorWaldofelizFalla() async {
+        await #expect(throws: ErrorAutenticacion.credencialesInvalidas) {
+            try await verificador.verificar(
+                CredencialesInicio(nombreUsuario: "waldofeliz", clave: "123456")
             )
         }
     }

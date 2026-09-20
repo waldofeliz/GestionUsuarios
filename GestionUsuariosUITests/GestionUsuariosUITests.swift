@@ -81,7 +81,7 @@ final class GestionUsuariosUITests: XCTestCase {
         let usuario = app.descendants(matching: .any)[IdentificadorAccesibilidadUI.loginUsuario]
         XCTAssertTrue(usuario.waitForExistence(timeout: 10), "Debe existir login.usuario")
         usuario.click()
-        usuario.typeText("waldofeliz")
+        usuario.typeText("administrador")
 
         let clave = app.descendants(matching: .any)[IdentificadorAccesibilidadUI.loginClave]
         XCTAssertTrue(clave.waitForExistence(timeout: 5), "Debe existir login.clave")

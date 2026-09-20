@@ -6,7 +6,7 @@
 **Owner**: `@security-specialist-agent`  
 **Alcance**: STRIDE + OWASP Top 10 2021 **A07** Identification and Authentication Failures, **A02** Cryptographic Failures, **A04** Insecure Design. Cliente macOS sandbox. **Código de login demo implementado; esta revisión es G4 post-código.**
 
-**Criterio de producto (AC, no negociable)**: el par `waldofeliz` / `123456` **debe** iniciar sesión. JSONPlaceholder **no tiene auth**; no se inventa un endpoint de login remoto.
+**Criterio de producto (AC, no negociable)**: el par `administrador` / `123456` **debe** iniciar sesión. El par `waldofeliz` / `123456` **no** autentica. JSONPlaceholder **no tiene auth**; no se inventa un endpoint de login remoto.
 
 **Postura**: no bloquear el AC. **Sí bloquear** (FAIL G4) si el password viaja por red (incluido JSONPlaceholder), se persiste en disco en claro, o el literal `"123456"` queda en el target `GestionUsuarios/`. **Ninguno de los tres se materializó.**
 
@@ -18,7 +18,7 @@
 - **Fuera de alcance**: OAuth/OIDC, Keychain como almacén de password, backend propio, certificate pinning (sigue el TM HTTP), roles/RBAC, “auth real” de producción.
 - **Data classification**:
   - Password demo: **Confidential** (secreto de comparación). Nunca en logs ni en red ni en disco.
-  - Username demo `waldofeliz`: **Internal** (identidad de demostración; puede aparecer en copy de usuario, no en el secreto de comparación).
+  - Username demo `administrador`: **Internal** (identidad de demostración; puede aparecer en copy de usuario, no en el secreto de comparación).
   - Sesión autenticada: **Internal**; solo RAM.
   - PII de usuarios JSONPlaceholder: sin cambio respecto a `docs/security/threat-model-usuarios.md`.
 - **Trust boundaries**:
@@ -61,15 +61,15 @@ El password **123456** es débil y está en rainbow tables. **No se puede rechaz
 | Nombre | Hex (minúsculas, 64 chars) |
 |--------|----------------------------|
 | `claveHMAC` = SHA256(`com.devapp.GestionUsuarios.demo.v1`) | `919cf51ddd83f974999c722b7c870ea018ae0a6767ea785aa9bd8aa91598fe8c` |
-| MAC usuario = HMAC-SHA256(clave, UTF-8 `waldofeliz`) | `26d688ee3759c61c8f574e9435f014d5f8344d4e7e8f7b6e5594daa1d25ba956` |
+| MAC usuario = HMAC-SHA256(clave, UTF-8 `administrador`) | `6c0f832b4a36b08ff6226936e200e7acd81914d2ffd654bc74b3c0812a108acb` |
 | MAC password = HMAC-SHA256(clave, UTF-8 del secreto AC) | `c3461883b9cf66ac6b566fe239544675b0f83e10bf61dd3e6288909f1eb3adcb` |
 
 Verificación independiente (solo para el implementador, no va en la app):
 
 ```text
 key = SHA256("com.devapp.GestionUsuarios.demo.v1")
-HMAC-SHA256(key, "waldofeliz") → 26d688ee3759c61c8f574e9435f014d5f8344d4e7e8f7b6e5594daa1d25ba956
-HMAC-SHA256(key, "123456")     → c3461883b9cf66ac6b566fe239544675b0f83e10bf61dd3e6288909f1eb3adcb
+HMAC-SHA256(key, "administrador") → 6c0f832b4a36b08ff6226936e200e7acd81914d2ffd654bc74b3c0812a108acb
+HMAC-SHA256(key, "123456")         → c3461883b9cf66ac6b566fe239544675b0f83e10bf61dd3e6288909f1eb3adcb
 ```
 
 Helper hex: función **privada** en el archivo Data; no añadir SPM de cripto.
@@ -105,7 +105,7 @@ Snyk Secrets: `degraded: feature not enabled (SNYK-CLI-0016)`. Grep: `"123456"` 
 
 | Threat | Category | Component | Description | Mitigation | Status |
 |--------|----------|-----------|-------------|------------|--------|
-| Login con credencial débil conocida | Spoofing | Gate local | Cualquiera que lea el AC o el binario entra como `waldofeliz` | Copy **“Entorno de demostración”** (`LoginVista.swift:50-53`); HMAC en vez de literal; no es IdP real | **Accepted** (demo / AC) — residual High de “auth real” |
+| Login con credencial débil conocida | Spoofing | Gate local | Cualquiera que lea el AC o el binario entra como `administrador` | Copy **“Entorno de demostración”** (`LoginVista.swift:50-53`); HMAC en vez de literal; no es IdP real | **Accepted** (demo / AC) — residual High de “auth real” |
 | Spoofing remoto (POST login a typicode) | Spoofing | `ClienteHTTP` | Enviar usuario/password a un host que no autentica y tratar 200 como éxito | Verificador **sin** `ClienteHTTP`; Composition Root no inyecta cliente (`ContenedorApp.swift:68-76`) | **Mitigated** (verificado post-código) |
 | Comparación `==` con timing | Information Disclosure / Spoofing | Verificador | `password == "123456"` filtra el secreto en fuente y por timing | HMAC CryptoKit `isValidAuthenticationCode` ambas MACs siempre (`VerificadorCredencialesDemo.swift:15-25`) | **Mitigated** (verificado) |
 | Password en claro en fuente | Information Disclosure | Data/Presentation | Literal `"123456"` en target app | Cero hits en `GestionUsuarios/`; solo HMAC hex; tests usan el input AC | **Mitigated** (verificado) |
@@ -160,7 +160,7 @@ Snyk Secrets: `degraded: feature not enabled (SNYK-CLI-0016)`. Grep: `"123456"` 
 
 ### MUST (producción / target `GestionUsuarios`)
 
-- AC: `waldofeliz` + `123456` **sí** autentica vía HMAC canónico (tabla de constantes).
+- AC: `administrador` + `123456` **sí** autentica vía HMAC canónico (tabla de constantes). `waldofeliz` + `123456` **no**.
 - Cero literales `"123456"` en `GestionUsuarios/` (target app). Permitido **solo** como **input** en tests (`GestionUsuariosTests/`, UITests).
 - Cero `String ==` / `hashedPassword == sha256("123456")` unsalted sobre el secreto.
 - CryptoKit HMAC + `isValidAuthenticationCode` para usuario y password; ambas MACs siempre.
@@ -201,7 +201,7 @@ Capas alineadas a ADR-001. Nombres en español salvo APIs Apple.
 | `GestionUsuarios/Domain/Autenticacion/CerrarSesionCasoUso.swift` | Domain | Invalida sesión. |
 | `GestionUsuarios/Domain/Autenticacion/AlmacenSesion.swift` | Domain | Protocol del flag (o actor/estado). Solo memoria. |
 | `GestionUsuarios/Domain/Errores/ErrorAutenticacion.swift` | Domain | Casos `credencialRechazada`, `bloqueado(hasta:)` — **sin** distinguir usuario/password. No reutilizar `ErrorUsuario.http`. |
-| `GestionUsuarios/Data/Autenticacion/VerificadorCredencialesDemo.swift` | Data | Único sitio de `claveHMAC` + MACs hex. CryptoKit. Helper hex privado. **Prohibido** inyectar `ClienteHTTP`. **Prohibido** literal `"123456"` / `"waldofeliz"` como secreto de comparación (el username literal tampoco: va por HMAC). |
+| `GestionUsuarios/Data/Autenticacion/VerificadorCredencialesDemo.swift` | Data | Único sitio de `claveHMAC` + MACs hex. CryptoKit. Helper hex privado. **Prohibido** inyectar `ClienteHTTP`. **Prohibido** literal `"123456"` / `"administrador"` como secreto de comparación (el username literal tampoco: va por HMAC). |
 | `GestionUsuarios/Data/Autenticacion/AlmacenSesionMemoria.swift` | Data | Flag + contador fallos + `fechaDesbloqueo`. `actor` o clase MainActor; **no** UserDefaults. |
 | `GestionUsuarios/App/ContenedorApp.swift` | App | Registrar casos de uso de auth. **No** pasar `cliente` HTTP al verificador. |
 | `GestionUsuarios/App/GestionUsuariosApp.swift` | App | Gate: sin sesión → `LoginVista`; con sesión → `RaizUsuariosVista`. Logout vuelve al login. |
@@ -209,7 +209,7 @@ Capas alineadas a ADR-001. Nombres en español salvo APIs Apple.
 | `GestionUsuarios/Presentation/Autenticacion/LoginVistaModelo.swift` | Presentation | Consume protocols Domain; limpia el secreto del binding tras éxito o al logout. |
 | `GestionUsuarios/Presentation/Navegacion/TextosUsuarios.swift` | Presentation | Strings de login **sin** password. Identificadores `login.*`. |
 | `GestionUsuarios/Presentation/Comandos/` (nuevo o extensión) | Presentation | Comando Cerrar sesión habilitado solo con sesión. |
-| `GestionUsuariosTests/Data/VerificadorCredencialesDemoTests.swift` | Tests | Input `waldofeliz`/`123456` → true; basura → false; lockout cubierto en tests de caso de uso. |
+| `GestionUsuariosTests/Data/VerificadorCredencialesDemoTests.swift` | Tests | Input `administrador`/`123456` → true; `waldofeliz`/`123456` → false; basura → false; lockout cubierto en tests de caso de uso. |
 | `GestionUsuariosTests/Domain/AutenticacionCasosDeUsoTests.swift` | Tests | 5 fallos → bloqueo; éxito resetea; logout invalida. |
 
 **No tocar para auth**: `EndpointsJSONPlaceholder.swift`, `APIUsuariosJSONPlaceholder.swift`, `ClienteHTTPURLSession.swift`, `UsuarioDTO.swift` (salvo review que confirmen que siguen sin credenciales).
@@ -294,7 +294,7 @@ Checklist de cierre post-código (2026-09-19):
 - [x] Lockout 5 / 30 s en RAM
 - [x] Copy “Entorno de demostración”
 - [x] Logout invalida sesión y vuelve a login
-- [x] AC `waldofeliz` / `123456` cubierto en tests (tests existen; ejecución G6 = QA)
+- [x] AC `administrador` / `123456` cubierto en tests (tests existen; ejecución G6 = QA)
 - [x] Residual SEC-AUTH-002 aceptado y visible en UI
 - [x] Re-scan Snyk Code post-implementación (`issueCount: 0`)
 - [ ] Snyk Secrets org (TOOL-001, preexistente)
@@ -395,7 +395,7 @@ CONDITIONAL porque: (1) residual High de auth demo (SEC-AUTH-002) está **Accept
 
 ### Criterio de éxito
 
-- [x] `waldofeliz` / `123456` cubierto en tests de verificador y caso de uso
+- [x] `administrador` / `123456` cubierto en tests de verificador y caso de uso; `waldofeliz` / `123456` no autentica
 - [x] Credenciales **nunca** en HTTP
 - [x] Password **nunca** en disco en claro
 - [x] Cero `"123456"` en target app; HMAC canónico en Data

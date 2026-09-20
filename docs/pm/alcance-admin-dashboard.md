@@ -25,7 +25,7 @@ Handoff `EE-PM-20260919-4` confirmado. **No** se re-exploró el monorepo.
 
 Estado de producto **hoy** (evidencia de docs + Presentation):
 
-- Login → shell autenticado (Inicio | Usuarios) → logout. Credenciales demo `waldofeliz` / verifier Security. CRUD intacto.
+- Login → shell autenticado (Inicio | Usuarios) → logout. Credenciales demo `administrador` / verifier Security. CRUD intacto.
 - `InicioVista` = hero + 1 total + 2 tarjetas de acceso. **Cero** `import Charts`.
 - Contratos vigentes **prohíben** el look pedido:
   - `docs/ux/design-system-usuarios.md` §2: «No: dashboard web (KPI, grids de 12 columnas, cards de métricas)».
@@ -47,7 +47,7 @@ Los números y las series salen **solo** de usuarios reales de `ListarUsuariosCa
 1. Un revisor que conozca MixPro reconoce el *patrón* (sidebar + KPI color + área + barras + cifra) y **no** ve logo MixPro, Bootstrap, jQuery ni HTML embebido.
 2. Cada KPI y cada punto de gráfico se puede trazar a `[Usuario]` de la sesión (conteo, ciudades, empresas). Cero «6374 visitas», cero feeds Twitter/Facebook.
 3. Hay **exactamente dos** gráficos Swift Charts (`AreaMark` + `BarMark`), no Chart.js.
-4. `waldofeliz` entra, ve el dashboard, abre Usuarios, cierra sesión. Misma ventana, sandbox intacto.
+4. `administrador` entra, ve el dashboard, abre Usuarios, cierra sesión. Misma ventana, sandbox intacto.
 5. El remoto GitHub deja de estar vacío (primer commit del proyecto, sin secretos).
 
 ---
@@ -250,7 +250,7 @@ Estimación en camisetas **propuesta**; **no es compromiso** hasta validación A
 **AC**
 
 - [ ] AC-25 Arranque = `login.usuario`; clave nunca en UI.
-- [ ] AC-26 `waldofeliz` + clave demo → Inicio dashboard (no CRUD directo).
+- [ ] AC-26 `administrador` + clave demo → Inicio dashboard (no CRUD directo).
 - [ ] AC-27 Destino Usuarios: identifiers §11.1 de `login-home-logout.md` verdes.
 - [ ] AC-28 Logout toolbar + menú; sucio → `COPY-DISCARD`; overlay vacío (test existente de `CerrarSesionCompuesto`).
 - [ ] AC-29 UITest de alta: login helper **antes** de `toolbar.nuevo` / `form.nombre`.

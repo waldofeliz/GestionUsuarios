@@ -62,7 +62,7 @@ xcodebuild -scheme GestionUsuarios -destination 'platform=macOS' build
 
 ### 4. Usar la demo
 
-1. Login: usuario `waldofeliz`, contraseña la documentada en el README raíz (**Entorno de demostración — no es producción**).
+1. Login: usuario `administrador`, contraseña la documentada en el README raíz (**Entorno de demostración — no es producción**).
 2. Inicio carga el listado (necesita red).
 3. Usuarios: lista/detalle/CRUD de sesión.
 4. Cuenta → Cerrar sesión, o el botón de toolbar.
@@ -103,7 +103,7 @@ No hay dashboards, on-call ni SLO.
 
 | Síntoma | Qué hacer |
 |---------|-----------|
-| Login rechaza `waldofeliz` + clave demo | Confirmar copy **Entorno de demostración**; no pegar espacios en la contraseña; esperar el lockout si hubo muchos fallos |
+| Login rechaza `administrador` + clave demo | Confirmar copy **Entorno de demostración**; no pegar espacios en la contraseña; esperar el lockout si hubo muchos fallos |
 | Lista vacía / error de red | Comprobar red y que el sandbox no se haya modificado; probar `curl -I https://jsonplaceholder.typicode.com/users` en Terminal |
 | Charts planos (una barra por categoría) | Esperado con n≈10; no es una alerta |
 | Duda de arquitectura | ADR en [README de docs](README.md); no inventar HTTP de login |

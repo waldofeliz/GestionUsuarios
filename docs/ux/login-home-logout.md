@@ -65,7 +65,7 @@ Navegación, atajos, `listStyle(.sidebar)`, validación de usuario, identifiers 
 
 | Campo | Valor | ¿Visible en UI? |
 |-------|-------|-----------------|
-| Usuario | `waldofeliz` | No como chrome. El usuario lo escribe. El hint **no** lo revela. |
+| Usuario | `administrador` | No como chrome. El usuario lo escribe. El hint **no** lo revela. |
 | Contraseña | `123456` | **Nunca.** Ni hint, ni placeholder, ni `help`, ni README in-app, ni VoiceOver, ni logs. |
 
 **CRED-01** Comparación local, case-sensitive, trim solo en usuario (no en contraseña).  
@@ -192,7 +192,7 @@ VStack(alignment: .leading, spacing: 16) {
 La tarjeta se **centra** en la ventana (gate de acceso, no ficha de inspector). Excepción consciente al «leading de detalle» del DS. No hero a todo el ancho, no video, no blur.
 
 **LOGIN-01** Labels persistentes: el título del `TextField` / `SecureField` en el `Form` grouped **es** el label visible (`COPY-L-LOGIN-USER`, `COPY-L-LOGIN-PASS`). El placeholder **no** sustituye al label (A11Y-26).  
-**LOGIN-02** Placeholder de usuario: `COPY-PH-LOGIN-USER` («Ej. tu usuario»). **Prohibido** `waldofeliz` o `123456` como placeholder.  
+**LOGIN-02** Placeholder de usuario: `COPY-PH-LOGIN-USER` («Ej. tu usuario»). **Prohibido** `administrador` o `123456` como placeholder.  
 **LOGIN-03** Contraseña: **sin** placeholder que simule puntos o la clave. El label «Contraseña» basta.  
 **LOGIN-04** Botón **Entrar** siempre habilitado (mismo criterio ST-VAL-01: el usuario descubre errores al enviar). Return / tecla de acción por defecto envía.  
 **LOGIN-05** No hay «Mostrar contraseña». No hay enlace «¿Olvidaste…?».  
@@ -289,7 +289,7 @@ HStack(alignment: .center, spacing: 16) {
 .background(DS-CARD)  // mismo estiloTarjetaUsuarios
 ```
 
-`COPY-HOME-HELLO` = «Hola, {usuario}» con el username de sesión (`waldofeliz` tras login OK). El nombre accesible del hero es ese texto (el avatar no se anuncia). Identifier contenedor: `home.hero`.
+`COPY-HOME-HELLO` = «Hola, {usuario}» con el username de sesión (`administrador` tras login OK). El nombre accesible del hero es ese texto (el avatar no se anuncia). Identifier contenedor: `home.hero`.
 
 ### 6.2 Tarjeta resumen (total)
 
@@ -446,7 +446,7 @@ Reutilizar `TemaUsuarios` / `AvatarUsuarioVista` / `SimboloWellUsuarios` / `esti
 | Wells | fill `#E6F3F3` / `#1A2E2D`, glifo `DS-ACCENT` (receta empty del DS) |
 | Entrar / Guardar | `.borderedProminent` + `tintaEtiquetaProminent` (A11Y-C-07) |
 | Error de campo | `Color.red` + `exclamationmark.circle` |
-| Avatar sesión | paleta 8 colores, iniciales de `waldofeliz` → **W** |
+| Avatar sesión | paleta 8 colores, iniciales de `administrador` → **A** |
 
 Columna Inicio: `frame(maxWidth: 720)`. Login: 420. No sombra > 8 pt.
 
@@ -530,7 +530,7 @@ No identifier en wells ni avatares (hidden). No `login.password` (usar `login.cl
 Contrato: helper de autenticación (UITest) que:
 
 1. Espera `login.usuario`.  
-2. Escribe `waldofeliz`.  
+2. Escribe `administrador`.  
 3. Escribe la clave en `login.clave`.  
 4. Pulsa `login.entrar`.  
 5. Espera `home.saludo` o `shell.usuarios`.  
@@ -600,7 +600,7 @@ Se **suma** a `navegacion-usuarios.md` §9 y `design-system-usuarios.md` §8. Fu
 - [ ] `A11Y-V-L01` Campos anuncian «Usuario» / «Contraseña», no solo placeholder
 - [ ] `A11Y-V-L02` Clave no se lee en claro
 - [ ] `A11Y-V-L03` Error KO se anuncia; foco a clave
-- [ ] `A11Y-V-L04` Tras OK: «Sesión iniciada»; hero «Hola, waldofeliz»
+- [ ] `A11Y-V-L04` Tras OK: «Sesión iniciada»; hero «Hola, administrador»
 - [ ] `A11Y-V-L05` Destinos: «Inicio», «Usuarios», no «house»
 - [ ] `A11Y-V-L06` Toolbar logout: «Cerrar sesión», no el nombre del SF Symbol
 - [ ] `A11Y-V-L07` `home.total` no es botón; `home.verLista` y `home.nuevo` sí
@@ -700,7 +700,7 @@ PASS real de G10 solo tras implementar + Inspector Light/Dark/IC + checklist §1
 | Login a pantalla completa en la misma ventana, no sheet | Gate de acceso HIG; el sheet 420 ya significa «Nuevo usuario» | Sheet/modal de login (compite con alta; patrón iOS) |
 | Sidebar de 2 destinos + CRUD anidado | Petición «Inicio y Usuarios»; conserva NAV-02 e identifiers | TabView; 3 columnas nativas (aprieta 760 pt y reescribe el split actual) |
 | Inicio = hero + total + 2 acciones, max 720 | DS prohíbe dashboard KPI; 2–4 tarjetas pedidas → 3 piezas + hero | Grid de métricas; tabla embebida |
-| Hint «Usuario de demostración» sin usuario ni clave | Handoff EE; 3.3.8 no exige revelar el secreto | Placeholder `waldofeliz` / `123456` |
+| Hint «Usuario de demostración» sin usuario ni clave | Handoff EE; 3.3.8 no exige revelar el secreto | Placeholder `administrador` / `123456` |
 | Error de credenciales genérico + vaciar solo clave | 3.3.1 sin enumeración de cuentas; 1.4.1 icono+texto | Alert modal; «usuario no existe» |
 | Menú **Cuenta** + `toolbar.logout`, sin atajo | Visible por teclado y ratón; no choca con ⌘Q / ⇧⌘Q | Solo menú Archivo; atajo ⇧⌘Q (sistema) |
 | Logout sucio reutiliza `COPY-DISCARD` | Handoff: confirmar si edición sucia; un solo diálogo conocido | Segundo copy «¿Cerrar sesión?» |

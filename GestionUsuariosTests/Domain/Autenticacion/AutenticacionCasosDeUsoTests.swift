@@ -24,9 +24,9 @@ struct IniciarSesionCasoUsoTests {
     @Test func credencialesDemoInicianSesion() async throws {
         let entorno = await fabrica()
         let sesion = try await entorno.servicio.ejecutar(
-            CredencialesInicio(nombreUsuario: "  waldofeliz  ", clave: "123456")
+            CredencialesInicio(nombreUsuario: "  administrador  ", clave: "123456")
         )
-        #expect(sesion.nombreUsuario == "waldofeliz")
+        #expect(sesion.nombreUsuario == "administrador")
         #expect(await entorno.almacen.actual() == sesion)
     }
 
@@ -34,7 +34,7 @@ struct IniciarSesionCasoUsoTests {
         let entorno = await fabrica()
         await #expect(throws: ErrorAutenticacion.credencialesInvalidas) {
             try await entorno.servicio.ejecutar(
-                CredencialesInicio(nombreUsuario: "waldofeliz", clave: "no")
+                CredencialesInicio(nombreUsuario: "administrador", clave: "no")
             )
         }
         #expect(await entorno.almacen.actual() == nil)
@@ -43,11 +43,11 @@ struct IniciarSesionCasoUsoTests {
     @Test func sesionYaIniciadaSeRechaza() async throws {
         let entorno = await fabrica()
         _ = try await entorno.servicio.ejecutar(
-            CredencialesInicio(nombreUsuario: "waldofeliz", clave: "123456")
+            CredencialesInicio(nombreUsuario: "administrador", clave: "123456")
         )
         await #expect(throws: ErrorAutenticacion.sesionYaIniciada) {
             try await entorno.servicio.ejecutar(
-                CredencialesInicio(nombreUsuario: "waldofeliz", clave: "123456")
+                CredencialesInicio(nombreUsuario: "administrador", clave: "123456")
             )
         }
     }
@@ -65,15 +65,15 @@ struct IniciarSesionCasoUsoTests {
         }
         await #expect(throws: ErrorAutenticacion.cuentaBloqueada(segundosRestantes: 30)) {
             try await entorno.servicio.ejecutar(
-                CredencialesInicio(nombreUsuario: "waldofeliz", clave: "123456")
+                CredencialesInicio(nombreUsuario: "administrador", clave: "123456")
             )
         }
 
         await entorno.reloj.avanzar(segundos: 30)
         let sesion = try await entorno.servicio.ejecutar(
-            CredencialesInicio(nombreUsuario: "waldofeliz", clave: "123456")
+            CredencialesInicio(nombreUsuario: "administrador", clave: "123456")
         )
-        #expect(sesion.nombreUsuario == "waldofeliz")
+        #expect(sesion.nombreUsuario == "administrador")
     }
 
     @Test func exitoReiniciaContadorDeFallos() async throws {
@@ -85,7 +85,7 @@ struct IniciarSesionCasoUsoTests {
             }
         }
         _ = try await entorno.servicio.ejecutar(
-            CredencialesInicio(nombreUsuario: "waldofeliz", clave: "123456")
+            CredencialesInicio(nombreUsuario: "administrador", clave: "123456")
         )
         await entorno.almacen.borrar()
 
